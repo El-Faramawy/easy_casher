@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="../images/favicon.ico">
+	<title> Easy Cashier </title>
+	<!-- Style-->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/perfect-scrollbar.css">
+	<link rel="stylesheet" href="css/swiper.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/dropify.min.css">
+	<link rel="stylesheet" href="css/style_rtl.css">
+	<link rel="stylesheet" href="css/app.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<!-- 
+	add class
+	sidebar-collapse 
+	to make side menu collapsed 
+-->
+
+<body class="hold-transition light-skin sidebar-mini theme-success fixed rtl">
+	<div class="wrapper">
+		<!-- ================ loader ================= -->
+		<div id="loader"></div>
+		<!-- ================ Header ================= -->
+		<header class="main-header">
+			<div class="d-flex align-items-center logo-box justify-content-start">
+				<!-- Logo -->
+				<a href="index.html" class="logo">
+					<div class="logo-mini w-50">
+						<span class="light-logo"><img src="../images/logo-letter.png"></span>
+					</div>
+					<div class="logo-lg">
+						<span class="light-logo"><img src="../images/logo-dark-text.png"></span>
+					</div>
+				</a>
+			</div>
+			<!-- Header Navbar -->
+			<nav class="navbar navbar-static-top">
+				<div class="app-menu">
+					<ul class="header-megamenu nav">
+						<li class="btn-group nav-item">
+							<a href="#" class="waves-effect waves-light nav-link push-btn btn-primary-light"
+								data-toggle="push-menu" role="button">
+								<i class="fad fa-bars"></i>
+							</a>
+						</li>
+						<!-- <li class="btn-group d-lg-inline-flex d-none">
+							<div class="app-menu">
+								<div class="search-bx mx-5">
+									<form>
+										<div class="input-group">
+											<input type="search" class="form-control" placeholder="بحث"
+												aria-label="Search" aria-describedby="button-addon2">
+											<div class="input-group-append">
+												<button class="btn" type="submit" id="button-addon3">
+													<i class="fal fa-search ms-1"></i>
+												</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</li> -->
+					</ul>
+				</div>
+				<div class="navbar-custom-menu r-side">
+					<ul class="nav navbar-nav">
+						<li class="btn-group nav-item d-lg-inline-flex d-none">
+							<a href="#" data-provide="fullscreen"
+								class="waves-effect waves-light nav-link full-screen btn-warning-light"
+								title=" ملئ الشاشة ">
+								<i class="fal fa-expand-wide"></i>
+							</a>
+						</li>
+						<!-- setting  -->
+						<li class="btn-group nav-item">
+							<a href="#" class="waves-effect full-screen waves-light btn-danger-light dropdown-toggle "
+								data-bs-toggle="dropdown" title="User">
+								<i class="fal fa-cog"></i>
+							</a>
+							<ul class="dropdown-menu animated flipInX">
+								<li class="user-body">
+									<a class="dropdown-item" href="#"><i class="fas fa-globe text-muted me-2"></i>
+										اللغة
+									</a>
+								</li>
+							</ul>
+						</li>
+						<!-- User Account-->
+						<li class="btn-group nav-item">
+							<a href="#"
+								class="waves-effect waves-light dropdown-toggle w-auto l-h-12 bg-transparent py-0 no-shadow"
+								data-bs-toggle="dropdown" title="User">
+								<div class="d-flex pt-5">
+									<img src="../images/avatar1.png"
+										class="avatar rounded-10 bg-primary-light h-40 w-40 ms-2" />
+									<div class="text-end me-10">
+										<p class="pt-5 fs-14 mb-0 fw-700 text-primary">محمود الكومي </p>
+										<small class="fs-10 mb-0 text-uppercase text-mute"> ادمن </small>
+									</div>
+								</div>
+							</a>
+							<ul class="dropdown-menu animated flipInX">
+								<li class="user-body">
+									<a class="dropdown-item" href="#"><i class="fas fa-user text-muted me-2"></i> حسابي
+									</a>
+									<hr>
+									<a class="dropdown-item" href="login.html"><i
+											class="fas fa-sign-out-alt text-danger me-2"></i> تسجيل الخروج </a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!-- ================ sidebar ================= -->
+		<aside class="main-sidebar">
+			<section class="sidebar position-relative">
+				<div class="multinav">
+					<div class="multinav-scroll" style="height: 100%;">
+						<!-- sidebar menu-->
+						<ul class="sidebar-menu" data-widget="tree">
+							<li>
+								<a href="#!">
+									<i class="fal fa-receipt"></i>
+									<span>فاتورة بيع</span>
+								</a>
+							</li>
+							<li>
+								<a href="#!">
+									<i class="fal fa-money-bill-wave"></i>
+									<span>فاتورة شراء</span>
+								</a>
+							</li>
+							<li>
+								<a href="#!">
+									<i class="fal fa-users-crown"></i>
+									<span>المصروفين</span>
+								</a>
+							</li>
+							<li>
+								<a href="#!">
+									<i class="fal fa-users"></i>
+									<span>العملاء</span>
+								</a>
+							</li>
+							<li>
+								<a href="#!">
+									<i class="fal fa-money-check-edit-alt"></i>
+									<span>المصروفات </span>
+								</a>
+							</li>
+							<hr>
+							<li>
+								<a href="#!">
+									<i class="fal fa-user"></i>
+									<span>الملف الشخصي</span>
+								</a>
+							</li>
+							<li>
+								<a href="#!">
+									<i class="fal fa-times-hexagon"></i>
+									<span>مرتجع المبيعات</span>
+								</a>
+							</li>
+							<li>
+								<a href="#!">
+									<i class="fal fa-ballot-check"></i>
+									<span> مرتجع المشتريات</span>
+								</a>
+							</li>
+							<li>
+								<a href="#!">
+									<i class="fal fa-plus-square"></i>
+									<span> اضافة مستخدم </span>
+								</a>
+							</li>
+							<li>
+								<a href="#!">
+									<i class="fal fa-comments-alt"></i>
+									<span> اتصل بنا </span>
+								</a>
+							</li>
+							<li>
+								<a href="#!">
+									<i class="fal fa-chart-network"></i>
+									<span> تفعيل التطبيق </span>
+								</a>
+							</li>
+							<li>
+								<a href="#!">
+									<i class="fal fa-globe"></i>
+									<span> اللغة </span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</aside>
+		<!-- +++++++++++++++++++++++++++++++++++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++                content
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++++++++++++++++++++++++++++++++++++++-->
+		<div class="content-wrapper">
+			<div class="container-full">
+				<!-- ================ content ================= -->
+				<section class="content">
+					<!-- ================ routeNav ================= -->
+					<div class="routeNav">
+						<button onclick="goBack()" class="Back">
+							<i class="fas fa-angle-right"></i>
+						</button>
+						<ul>
+							<li>
+								<a href="index.html"> الرئسية </a>
+							</li>
+							<li>
+								<a href="#!" class="active"> المصروفات </a>
+							</li>
+						</ul>
+					</div>
+					<!-- ================ /routeNav ================= -->
+					<section class="innerPage">
+						<!-- ================ slider ================= -->
+						<div class="swiper mySwiper">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<img src="images/s1.jpg">
+								</div>
+								<div class="swiper-slide">
+									<img src="images/s2.jpg">
+								</div>
+								<div class="swiper-slide">
+									<img src="images/s3.jpg">
+								</div>
+							</div>
+							<div class="swiper-pagination"></div>
+						</div>
+						<!-- ================ section ================= -->
+						<div class="Expenses">
+							<button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addExpenses">
+								<i class="fas fa-plus-octagon"></i> اضافة مصروف </button>
+							<ul>
+								<li class="supplier">
+									<img src="images/avatar1.png">
+									<div class="info">
+										<div class="data">
+											<h6> شركة الكهرباء </h6>
+											<p> <i class="far fa-calendar-alt ms-2"></i>  10 / 10 / 2021 </p>
+											<span> <i class="fas fa-money-bill-wave ms-2"></i>  200 ج.م</span>
+										</div>
+										<button class="btn btn-light color1 " data-bs-toggle="modal"
+											data-bs-target="#addExpenses"> <i class="fas fa-edit"></i> </button>
+									</div>
+								</li>
+								<li class="supplier">
+									<img src="images/avatar1.png">
+									<div class="info">
+										<div class="data">
+											<h6> شركة الكهرباء </h6>
+											<p> <i class="far fa-calendar-alt ms-2"></i>  10 / 10 / 2021 </p>
+											<span> <i class="fas fa-money-bill-wave ms-2"></i>  200 ج.م</span>
+										</div>
+										<button class="btn btn-light color1 " data-bs-toggle="modal"
+											data-bs-target="#addExpenses"> <i class="fas fa-edit"></i> </button>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</section>
+				</section>
+				<!-- ================ /content ================= -->
+			</div>
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="addExpenses" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+			aria-labelledby="addExpensesLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="addExpensesLabel"> اضافة مصروف </h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<form>
+						<div class="modal-body">
+							<div class="row align-items-end">
+								<div class="col-8 p-1">
+									<label class="form-label">اختر حساب </label>
+									<select class="form-select form-select-lg">
+										<option value="1">One</option>
+										<option value="2">Two</option>
+										<option value="3">Three</option>
+									</select>
+								</div>
+								<div class="col-4 p-1">
+									<button type="button" class="btn btn-primary addClintBtn"> اضف حساب </button>
+								</div>
+							</div>
+							<div class=" addClintSection">
+								<input type="text" class="form-control" placeholder=" الاسم ">
+							</div>
+
+							<div class="row  align-items-center">
+								<h6 class="col-4 p-2"> المدفوع </h6>
+								<div class="col-8 p-2 text-start"> <input type="number" class="form-control" placeholder=" 00 ج.م "> </div>
+							</div>
+						
+							<div class="row  align-items-center">
+								<h6 class="col-4 p-2"> التاريخ </h6>
+								<div class="col-8 p-2 text-start"> <input type="date" class="form-control"> </div>
+							</div>
+							
+							
+						</div>
+						<div class="modal-footer d-flex justify-content-between ">
+							<button type="button" class="btn btn-dark" data-bs-dismiss="modal"> اغلاق </button>
+							<button type="submit" class="btn btn-success "> حفظ </button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- +++++++++++++++++++++++++++++++++++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++              /  content
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++++++++++++++++++++++++++++++++++++++-->
+	</div>
+	<!--/////////////////////////////JavaScript/////////////////////////////////////////-->
+	<script src="js/vendors.min.js"></script>
+	<script src="js/template.js"></script>
+	<script src="js/fontawesome-pro.js"></script>
+	<script src="js/swiper.js"></script>
+	<script src="js/dropify.min.js"></script>
+	<script src="js/Custom.js"></script>
+</body>
+
+</html>

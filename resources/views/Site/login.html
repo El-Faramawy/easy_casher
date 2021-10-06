@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="../images/favicon.ico">
+	<title> Easy Cashier </title>
+	<!-- Style-->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/perfect-scrollbar.css">
+	<link rel="stylesheet" href="css/swiper.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/style_rtl.css">
+	<link rel="stylesheet" href="css/app.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<!-- 
+	add class
+	sidebar-collapse 
+	to make side menu collapsed 
+-->
+
+<body class="hold-transition light-skin sidebar-mini theme-success fixed rtl">
+	<div class="wrapper">
+		<!-- +++++++++++++++++++++++++++++++++++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++                content
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++++++++++++++++++++++++++++++++++++++-->
+		<!-- login -->
+		<section class="loginPage">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-lg-10 m-auto">
+						<div class="loginForm">
+							<img src="images/logo.png" class="logo order-md-last">
+							<form action="" class="order-md-first">
+								<div class="secondTitle">
+									<h3> تسجيل الدخول </h3>
+								</div>
+
+
+								<label for="phone" class="form-label"> ادخل رقم الهاتف </label>
+								<div class="input-group mb-3">
+									<select class="form-select" aria-label="Default select example">
+										<option selected disabled>اختر الدوله  </option>
+										<option value="1">مصر</option>
+										<option value="2">السعودية</option>
+										<option value="3">الامارات</option>
+									</select>
+									<input type="number" class="form-control" placeholder="رقم الهاتف">
+								</div>
+
+								<button type="button" data-bs-toggle="modal" data-bs-target="#CodeModal" class="btn btn-primary"> ارسال </button>
+
+							</form>
+							<span class="BGImg d-none d-md-block"><img src="images/before.png"></span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="CodeModal" tabindex="-1" aria-labelledby="CodeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="CodeModalLabel"> كود التفعيل </h5>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+
+			<p> من فضلك ادخل الكود المرسل الي <span> 0123456799 </span> </p>
+			<input  type="number" class="form-control codeInput" maxlength="8" placeholder="----- ">
+
+
+			<a href="index.html"  class="btn btn-primary"> تأكيد </a>
+
+
+		</div>
+		
+		
+	  </div>
+	</div>
+  </div>
+
+		<!-- +++++++++++++++++++++++++++++++++++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++              /  content
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++
+		+++++++++++++++++++++++++++++++++++++++++++-->
+	</div>
+	<!--/////////////////////////////JavaScript/////////////////////////////////////////-->
+	<script src="js/vendors.min.js"></script>
+	<script src="js/template.js"></script>
+	<script src="js/fontawesome-pro.js"></script>
+	<script src="js/swiper.js"></script>
+	<script src="js/Custom.js"></script>
+</body>
+
+</html>
