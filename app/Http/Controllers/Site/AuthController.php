@@ -15,7 +15,7 @@ class AuthController extends Controller
 
     public function post_login(Request $request)
     {
-//        return $request->all();
+        return $request->all();
         $user = User::where(['phone'=>$request->phone,'phone_code'=>'00'.$request->phone_code])->first();
         if ($user){
             Auth::login($user);
