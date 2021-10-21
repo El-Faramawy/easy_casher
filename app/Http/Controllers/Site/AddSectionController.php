@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Color;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AddSectionController extends Controller
 {
@@ -19,7 +20,7 @@ $categories2= Category::all();
     }
 
     public function create(request $request){
-
+        if (Auth::user()){
           $new = new Category();
         if ($request->cat_image && $request->cat_type == 'image'){
             $file_extension = $request -> cat_image -> getClientOriginalExtension();
@@ -34,12 +35,16 @@ $categories2= Category::all();
         }
 $new->title = $request->cat_name;
 $new->display_logo_type = $request->cat_type;
-$new->user_id = 36;
-$new->added_by_id = 36;
+$new->user_id = Auth::user()->id;
+$new->added_by_id = $user_id = Auth::user()->id;
 $new->save();
-return redirect()->back();
-//        return redirect()->with(notification('تم الحفظ ','success'));
-
+//return redirect()->back();
+        return redirect()->back()->with(notification('تم الحفظ ','success'));
+        }
+        else {
+//            return view('Site/login');
+            return redirect('login')->with(notification('يرجي تسجيل الدخول اولا', 'warning'));
+        }
 
 
     }
@@ -61,8 +66,8 @@ return redirect()->back();
             $update->image = null;
         }
         $update->save();
-        return redirect()->back();
-        //        return redirect()->with(notification('تم التعديل ','success'));
+//        return redirect()->back();
+                return redirect()->back()->with(notification('تم التعديل ','success'));
 
     }
 

@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AddProductCategory extends Controller
 {
@@ -16,46 +17,48 @@ class AddProductCategory extends Controller
 
         $colors= Color::all();
         $categories = Category::all();
-        $products = Product::paginate(15);
+        $products = Product::paginate(10);
 
             return view('Site/add-products' , compact('colors' , 'categories' , 'products'));
     }
 
     public function create(request $request){
-
+        if (Auth::user()) {
 //       return $request;
-       $new = new Product();
+            $new = new Product();
 
-       $new ->title = $request->title;
-       $new ->product_cost = $request->product_cost;
-       $new ->product_price = $request->product_price;
-       $new ->product_type = $request->sellType;
-       $new ->sku = $request->sku;
-       $new ->stock_type = $request->stockType;
-       $new ->stock_amount = $request->stock_amount;
-       $new ->display_logo_type = $request->viewType;
-        if ($request->cat_image && $request->viewType == 'image'){
-            $file_extension = $request -> cat_image -> getClientOriginalExtension();
-            $file_name = time(). '.' . $file_extension;
-            $path='Uploads/category/';
-            $request->cat_image->move($path , $file_name);
-            $new->image = $path . $file_name;
+            $new->title = $request->title;
+            $new->product_cost = $request->product_cost;
+            $new->product_price = $request->product_price;
+            $new->product_type = $request->sellType;
+            $new->sku = $request->sku;
+            $new->stock_type = $request->stockType;
+            $new->stock_amount = $request->stock_amount;
+            $new->display_logo_type = $request->viewType;
+            if ($request->cat_image && $request->viewType == 'image') {
+                $file_extension = $request->cat_image->getClientOriginalExtension();
+                $file_name = time() . '.' . $file_extension;
+                $path = 'Uploads/category/';
+                $request->cat_image->move($path, $file_name);
+                $new->image = $path . $file_name;
+            }
+            if ($request->viewType == 'color') {
+                $new->color_id = $request->cat_color;
+                $request->image = null;
+            }
+            $new->user_id = Auth::user()->id;
+            $new->added_by_id = Auth::user()->id;
+            $new->save();
+            $new_product_category = new ProductCategory();
+            $new_product_category->product_id = $new->id;
+            $new_product_category->category_id = $request->category_id;
+            $new_product_category->save();
+                return redirect()->back()->with(notification('تم الحفظ ','success'));
+
         }
-        if ( $request->viewType == 'color'){
-            $new ->color_id =$request->cat_color;
-            $request->image = null;
+        else{
+            return redirect('login')->with(notification('يرجي تسجيل الدخول اولا', 'warning'));
         }
-        $new->user_id = 36;
-        $new->added_by_id = 36;
-        $new->save();
-        $new_product_category = new ProductCategory();
-        $new_product_category->product_id= $new->id;
-        $new_product_category->category_id = $request->category_id;
-        $new_product_category->save();
-        return redirect()->back();
-//                return redirect()->with(notification('تم الحفظ ','success'));
-
-
 
     }
 
@@ -88,8 +91,8 @@ class AddProductCategory extends Controller
         $update->display_logo_type = $request->viewType;
         $update->color_id = $request->cat_color;
         $update->save();
-        return redirect()->back();
-        //        return redirect()->with(notification('تم التعديل ','warning'));
+//        return redirect()->back();
+                return redirect()->back()->with(notification('تم التعديل ','warning'));
 
     }
 

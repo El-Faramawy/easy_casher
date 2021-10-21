@@ -70,10 +70,10 @@
                        class="waves-effect waves-light dropdown-toggle w-auto l-h-12 bg-transparent py-0 no-shadow"
                        data-bs-toggle="dropdown" title="User">
                         <div class="d-flex pt-5">
-                            <img src="{{url('Site')}}/images/avatar1.png"
+                            <img src="{{get_file(auth()->user()->image)}}"
                                  class="avatar rounded-10 bg-primary-light h-40 w-40 ms-2" />
                             <div class="text-end me-10">
-                                <p class="pt-5 fs-14 mb-0 fw-700 text-primary">محمود الكومي </p>
+                                <p class="pt-5 fs-14 mb-0 fw-700 text-primary">{{auth()->user()->name}} </p>
 {{--                                <small class="fs-10 mb-0 text-uppercase text-mute"> ادمن </small>--}}
                             </div>
                         </div>

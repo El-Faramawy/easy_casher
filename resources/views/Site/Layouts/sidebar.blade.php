@@ -17,19 +17,19 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#!">
+                        <a href="{{route('suppliers')}}">
                             <i class="fal fa-users-crown"></i>
                             <span>الموردين</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#!">
+                        <a href="{{route('customers')}}">
                             <i class="fal fa-users"></i>
                             <span>العملاء</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#!">
+                        <a href="{{route('expenses')}}">
                             <i class="fal fa-money-check-edit-alt"></i>
                             <span>المصروفات </span>
                         </a>
