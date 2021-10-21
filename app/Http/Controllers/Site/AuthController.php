@@ -26,6 +26,7 @@ class AuthController extends Controller
 
     public function post_login(Request $request)
     {
+<<<<<<< HEAD
         $rules= [
             'phone' => 'required',
             'phone_code'=>'required',
@@ -81,6 +82,15 @@ class AuthController extends Controller
         $data['password']=bcrypt(123456);
         //upload logo
         $data['logo']= $this->createImageFromTextManual('users' , $request->name , 256 , '#000', '#fff');
+=======
+        return $request->all();
+        $user = User::where(['phone'=>$request->phone,'phone_code'=>'00'.$request->phone_code])->first();
+        if ($user){
+            Auth::login($user);
+            return response()->json(['type'=>'success','url'=>url('/')]);
+        }else
+            return response()->json(['type'=>'error','message'=>'رقم الهاتف غير موجود']);
+>>>>>>> 633756990a2a83d7f0c7b387d7ccefea7a8186fd
 
         $user=User::create($data);
         //-------------
